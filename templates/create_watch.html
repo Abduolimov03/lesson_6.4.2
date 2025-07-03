@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Watch</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 100%;
+        }
+
+        input[type="file"] {
+            border: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #084cdf;
+        }
+        .back-btn {
+    background-color: #eaeaea;
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #d6d6d6;
+}
+
+    </style>
+</head>
+<body>
+<a href="{% url 'watch' %}" class="back-btn">← Orqaga qaytish</a>
+
+<div class="form-container">
+    <h2>Add New Watch</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Brand:</label>
+    <input type="text" name="brand" required>
+
+    <label>Description:</label>
+    <textarea name="desk" required></textarea>
+
+    <label>Image:</label>
+    <input type="file" name="image">
+
+    <label>Price ($):</label>
+    <input type="number" step="0.01" name="price" required>
+
+    <button type="submit">Save</button>
+</form>
+
+</div>
+
+</body>
+</html>

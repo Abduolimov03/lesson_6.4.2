@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Men Watch | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff9900;
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1516575150278-77136aed6920') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            font-size: 3rem;
+        }
+
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .watches {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .watch-card {
+            background-color: white;
+            width: 250px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .watch-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .watch-card h3 {
+            margin: 15px 0 10px;
+        }
+
+        .watch-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Men Watch</h1>
+        <p>Premium Erkaklar Qo‘l Soatlari</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="{% url 'watch' %}">Shop</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Yangi kolleksiya 2025</h1>
+    </section>
+
+    <section class="section">
+        <h2>Top Soatlar</h2>
+        <div class="watches">
+            <div class="watch-card">
+                <img src="https://images.unsplash.com/photo-1600185365894-340be23d1d20" alt="Watch 1">
+                <h3>Royal Black</h3>
+                <p>$199</p>
+            </div>
+            <div class="watch-card">
+                <img src="https://images.unsplash.com/photo-1602524208450-3e39c7a3f1c2" alt="Watch 2">
+                <h3>Elegant Steel</h3>
+                <p>$249</p>
+            </div>
+            <div class="watch-card">
+                <img src="https://images.unsplash.com/photo-1588776814546-ec0b1430e334" alt="Watch 3">
+                <h3>Classic Leather</h3>
+                <p>$179</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Men Watch. Barcha huquqlar himoyalangan.</p>
+    </footer>
+</body>
+</html>

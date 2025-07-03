@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Watches</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .watch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .watch-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .watch-card:hover {
+            transform: scale(1.03);
+        }
+
+        .watch-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .watch-brand {
+            font-size: 18px;
+            font-weight: bold;
+            color: #222;
+        }
+        .back-btn {
+    background-color: #eaeaea;
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #d6d6d6;
+}.create-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.create-btn:hover {
+    background-color: #218838;
+}
+
+
+    </style>
+
+</head>
+<body>
+
+<h1>Our Watches</h1>
+<a href="{% url 'create-watch' %}" class="create-btn">+ Yangi Watch qo‘shish</a>
+
+
+<div class="watch-grid">
+    {% for watch in watchs %}
+    <div class="watch-card">
+        {% if watch.image %}
+            <img src="{{ watch.image.url }}" alt="{{ watch.brand }}">
+        {% else %}
+            <img src="/media/default/watch.png" alt="No image">
+        {% endif %}
+        <div class="watch-brand"><a href="{% url 'watch-detail' watch.id %}">{{ watch.brand }}</a></div>
+    </div>
+    {% endfor %}
+</div>
+<a href="{% url 'home' %}" class="back-btn">Home</a>
+
+</body>
+</html>

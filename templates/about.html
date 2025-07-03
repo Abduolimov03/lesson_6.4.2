@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biz haqimizda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .highlight {
+            color: #0d6efd;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #888;
+            font-size: 14px;
+        }
+        .back-btn {
+    background-color: #eaeaea;
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 25px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #d6d6d6;
+}
+
+    </style>
+</head>
+<body>
+<a href="{% url 'home' %}" class="back-btn">Home</a>
+
+<div class="about-container">
+    <h1>Biz haqimizda</h1>
+    <p>
+        <span class="highlight">Men Watch</span> — bu zamonaviy erkak soatlari savdosi bilan shug‘ullanuvchi sayt.
+        Saytimiz orqali siz klassik, sport, aqlli va boshqa turdagi original soatlarni ko‘rishingiz va xarid qilishingiz mumkin.
+    </p>
+    <p>
+        Biz sifat, ishonchlilik va mijozlar ehtiyojini birinchi o‘ringa qo‘yamiz. Har bir mahsulot rasm va batafsil ma’lumot bilan taqdim etilgan.
+        Agar sizga sifatli va o‘ziga xos uslubdagi soat kerak bo‘lsa — bizga murojaat qiling!
+    </p>
+
+    <div class="footer">
+        &copy; 2025 Men Watch. Barcha huquqlar himoyalangan.
+    </div>
+</div>
+
+</body>
+</html>

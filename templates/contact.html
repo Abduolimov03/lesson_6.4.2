@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bog‘lanish</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef1f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, textarea {
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button {
+            background-color: #0d6efd;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #084cdf;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        .contact-info strong {
+            color: #333;
+        }
+      .back-btn {
+    background-color: #eaeaea;
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 25px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #d6d6d6;
+}
+
+    </style>
+</head>
+<body>
+<a href="{% url 'home' %}" class="back-btn">Home</a>
+
+<div class="contact-container">
+    <h1>Biz bilan bog‘laning</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Ismingiz" required>
+        <input type="email" name="email" placeholder="Email manzilingiz" required>
+        <textarea name="message" placeholder="Xabaringizni yozing..." required></textarea>
+        <button type="submit">Yuborish</button>
+    </form>
+
+    <div class="contact-info">
+        <h3>Aloqa ma'lumotlari:</h3>
+        <p><strong>Manzil:</strong> Toshkent shahri, Chilonzor tumani</p>
+        <p><strong>Email:</strong> info@menwatch.uz</p>
+        <p><strong>Telefon:</strong> +998 90 123 45 67</p>
+        <p><strong>Ish vaqti:</strong> Dushanba - Shanba (9:00 - 18:00)</p>
+    </div>
+</div>
+
+</body>
+</html>

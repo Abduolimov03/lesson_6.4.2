@@ -3,6 +3,7 @@ from .admin import Watch
 from .forms import WatchForm
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
+from django.db.models import Q
 
 
 
@@ -18,7 +19,19 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 class WatchList(View):
     def get(self, request):
-        watchs = Watch.objects.all().order_by('-id')
+        query_b = request.GET.get('b', '')
+        query_p = request.GET.get('p', '')
+
+        if query_b and query_p:
+            watchs = Watch.objects.filter(
+                Q(brand__icontains=query_b) & Q(price=query_p)
+            )
+        elif query_b:
+            watchs = Watch.objects.filter(
+                Q(brand__icontains=query_b)
+            )
+        else:
+            watchs = Watch.objects.all().order_by('-id')
         return render(request, 'watch_list.html', {'watchs':watchs})      
 
 
@@ -100,11 +113,28 @@ class WatchCreate(View):
 #         form = WatchForm(instance=watch)
 #     return render(request, 'watch_update.html', {'form':form})
     
-class WatchUpdate(UpdateView):
-    model = Watch
-    form_class = WatchForm
-    template_name = 'watch_update.html'
-    success_url = reverse_lazy('watch')
+# class WatchUpdate(UpdateView):
+#     model = Watch
+#     form_class = WatchForm
+#     template_name = 'watch_update.html'
+#     success_url = reverse_lazy('watch')
+
+
+class WatchUpdate(View):
+    def get(self, request, pk):
+        watch = get_object_or_404(Watch, id=pk)
+        form = WatchForm(instance=watch)
+        return render(request, 'watch_update.html', {'form':form})
+
+    
+    def post(self, request, pk):
+        watch = get_object_or_404(Watch, id=pk)
+        form = WatchForm(request.POST, request.FILES, instance=watch)
+        if form.is_valid():
+            form.save()
+            return redirect('watch-detail', watch.id)
+
+        return render(request, 'watch_update.html', {'form':form})
 
 
 # def delete_watch(request, pk):

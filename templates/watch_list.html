@@ -87,7 +87,11 @@
 
 <h1>Our Watches</h1>
 <a href="{% url 'create-watch' %}" class="create-btn">+ Yangi Watch qo‘shish</a>
-
+<form method='get'>
+        <input type="text" name="b" placeholder="Search brand..." value="{{ request.GET.b }}">
+        <input type="text" name="p" placeholder="Search price..." value="{{ request.GET.p }}">
+    <button type='submit'>Qidirish</button>
+</form>
 
 <div class="watch-grid">
     {% for watch in watchs %}

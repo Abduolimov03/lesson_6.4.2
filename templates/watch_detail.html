@@ -83,7 +83,8 @@
         Created: {{ watch.created_at|date:"F j, Y, H:i" }}<br>
         Last updated: {{ watch.updated_at|date:"F j, Y, H:i" }}
     </div>
-
+    <a href="{% url 'del-watch' watch.id %}" class="back-link">Delete</a>
+    <a href="{% url 'update-watch' watch.id %}" class="back-link">---Update</a>
     <a href="{% url 'watch' %}" class="back-link">← Back to all watches</a>
 </div>
 

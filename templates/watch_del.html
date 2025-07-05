@@ -1,0 +1,8 @@
+<h2>Siz soatni o'chirishni tasdiqlaysizmi?</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Ha</button>
+    <a href="{% url 'watch-detail' watch.id %}">Yo'q</a>
+</form>
+
